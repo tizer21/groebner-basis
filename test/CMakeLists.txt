@@ -12,6 +12,7 @@ enable_testing()
 
 add_executable(groebner_basis_tests
     monomial_test.cpp
+    rational_test.cpp
 )
 
 target_link_libraries(groebner_basis_tests
