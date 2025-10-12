@@ -100,7 +100,7 @@ inline Rational operator*(Rational lhs, const Rational& rhs) {
 }
 
 inline Rational operator/(Rational lhs, const Rational& rhs) {
-    assert(rhs != Rational() && "The divisor must not be zero");
+    assert(rhs != Rational(0) && "The divisor must not be zero");
 
     lhs /= rhs;
     return lhs;
@@ -119,15 +119,15 @@ inline bool operator<(const Rational& lhs, const Rational& rhs) {
 }
 
 inline bool operator<=(const Rational& lhs, const Rational& rhs) {
-    return (lhs.numerator_ * rhs.denominator_ <= rhs.numerator_ * lhs.denominator_);
+    return lhs < rhs || lhs == rhs;
 }
 
 inline bool operator>(const Rational& lhs, const Rational& rhs) {
-    return (lhs.numerator_ * rhs.denominator_ > rhs.numerator_ * lhs.denominator_);
+    return !(lhs <= rhs);
 }
 
 inline bool operator>=(const Rational& lhs, const Rational& rhs) {
-    return (lhs.numerator_ * rhs.denominator_ >= rhs.numerator_ * lhs.denominator_);
+    return !(lhs < rhs);
 }
 
 inline std::ostream& operator<<(std::ostream &out, const Rational &rational) {
