@@ -6,3 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(groebner-basis INTERFACE)
 target_include_directories(groebner-basis INTERFACE include/)
+
+include(CTest)
+
+add_subdirectory(test)
