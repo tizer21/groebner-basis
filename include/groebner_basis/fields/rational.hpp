@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cassert>
-#include <cstdint>
 #include <numeric>
 #include <ostream>
 
@@ -115,11 +114,11 @@ inline bool operator!=(const Rational& lhs, const Rational& rhs) {
 }
 
 inline bool operator<(const Rational& lhs, const Rational& rhs) {
-    return (lhs.numerator_ * rhs.denominator_ < rhs.numerator_ * lhs.denominator_);
+    return (lhs.numerator_ * rhs.denominator_) < (rhs.numerator_ * lhs.denominator_);
 }
 
 inline bool operator<=(const Rational& lhs, const Rational& rhs) {
-    return lhs < rhs || lhs == rhs;
+    return (lhs < rhs) || (lhs == rhs);
 }
 
 inline bool operator>(const Rational& lhs, const Rational& rhs) {
