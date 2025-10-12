@@ -8,7 +8,7 @@
 namespace groebner_basis::fields {
 
 class Rational {
-    using Integer = int64_t;
+    using Integer = long long;
 
 public:
     Rational() = default;
